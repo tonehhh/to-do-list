@@ -18,7 +18,7 @@ function setItems(items){
 
 function addItem(){
     items.unshift({
-        description: " ",
+        description: "",
         completed: false
     });
 
@@ -27,7 +27,7 @@ function addItem(){
 }
 
 function refreshList(){
-    // TODOLIST: sort lists
+    // TODOLIST: sort tasks
 
     ITEMS_CONTAINER.innerHTML = "";
 
