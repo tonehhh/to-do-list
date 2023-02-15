@@ -50,15 +50,19 @@ function refreshList(){
 
     for (const item of items){
         const itemElement = ITEM_TEMPLATE.content.cloneNode(true);
-        const descriptionInput = itemElement.querySelector(".itemdescription");
-        const completedInput = itemElement.querySelector(".itemcompleted");
+        const descriptionInput = itemElement.querySelector(".item-description");
+        const completedInput = itemElement.querySelector(".item-completed");
 
         descriptionInput.value = item.description;
         completedInput.checked = item.completed;
 
-        descriptionInput.addEventListener("change", ( => {
-            updateItem(item, "description", completedInput.checked);
-        }))
+        descriptionInput.addEventListener("change", () => {
+            updateItem(item, "description", completedInput.value);
+        });
+
+        completedInput.addEventListener("change", () => {
+            updateItem(item,"completed", completedInput.checked);
+        });
 
         ITEMS_CONTAINER.append(itemElement);
     }

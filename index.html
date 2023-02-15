@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My To-Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    
 </head>
 <body>
     <header>
@@ -15,10 +16,16 @@
     <div id="items"></div>
         <template id="itemTemplate">
             <div class="item">
+                <form>
                 <input type="checkbox" class="item-completed">
                 <input type="text" class="item-description" placeholder="what's your task?">
+                <button type="submit" class="trash">
+                    <i class="fa fa-trash" aria-hidden="true" class="bin"></i>
+                </button>
+                </form>
             </div>
         </template>
     <button id="add">Add Task</button>
+    <script src="script.js"></script>
 </body>
 </html>
