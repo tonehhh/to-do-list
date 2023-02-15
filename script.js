@@ -26,8 +26,25 @@ function addItem(){
     refreshList();
 }
 
+function updateItem(item, key, value){
+    item[key] = value;
+
+    setItems(items);
+    refreshList();
+}
+
 function refreshList(){
-    // TODOLIST: sort tasks
+    items.sort((a, b) => {
+        if (a.completed){
+            return 1;
+        }
+
+        if (a.completed){
+            return -1;
+        }
+
+        return a.description < b.description ? -1 : 1;
+    });
 
     ITEMS_CONTAINER.innerHTML = "";
 
@@ -38,6 +55,10 @@ function refreshList(){
 
         descriptionInput.value = item.description;
         completedInput.checked = item.completed;
+
+        descriptionInput.addEventListener("change", ( => {
+            updateItem(item, "description", completedInput.checked);
+        }))
 
         ITEMS_CONTAINER.append(itemElement);
     }
